@@ -9,7 +9,7 @@ class Quesiton
   end
 
   def answer(answer)
-    puts @left_no + @right_no == answer
+    @left_no + @right_no == answer
   end
 
 end
