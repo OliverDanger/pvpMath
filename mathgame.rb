@@ -5,6 +5,6 @@ class Mathgame
     @player2 = Player.new(name2)
   end
   
-
+  
 
 end
