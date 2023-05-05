@@ -11,14 +11,26 @@ class Mathgame
   def ask_player()
     @current_question = Quesiton.new
     @current_question.ask(@next_player.name)
-    puts "______???______???______???______"
+    puts "???______???______???______???______???"
     choice = $stdin.gets.chomp.to_i
+    check_answer(choice)
+  end
+
+  def check_answer(choice)
     correct = @current_question.answer(choice)
     if correct 
       puts "#{@next_player.name} got it!"
     else
       puts "Sorry #{@next_player.name}, you now have #{@next_player.lose_life} lives remaining."
     end
+    if @next_player.lives == 0
+      end_game
+    end 
+  end
+
+  def end_game
+    winner = (player1.lives > player2.lives ? player1.name : player2.name)
+    puts "#{winner} Wins! \nFinal score:\n#{player1.name}: #{player1.lives} lives \n#{player2.name}: #{player2.lives} lives"
   end
 
 end
