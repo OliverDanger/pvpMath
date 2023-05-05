@@ -7,11 +7,11 @@ class Mathgame
     @current_question
   end
   
-  # asks @next_player a question and returns their answer
+  # asks @next_player a NEW question instance and returns their answer
   def ask_player()
     @current_question = Quesiton.new
+    puts "---------- #{next_player.name.upcase}'S TURN ----------"
     @current_question.ask(@next_player.name)
-    puts "???______???______???______???______???"
     choice = $stdin.gets.chomp.to_i
     check_answer(choice)
   end
@@ -25,12 +25,27 @@ class Mathgame
       puts "Sorry #{@next_player.name}, you now have #{@next_player.lose_life} lives remaining."
     end
     if @next_player.lives == 0
-      end_game
-    end 
+      return end_game
+    end
+    new_turn
+  end
+
+  # swaps the player at @next_player
+  def togglePlayer
+    @next_player = (@next_player.name == @player1.name ? @player2 : @player1 )
+  end
+
+  # toggles next_player and asks a question
+  def new_turn
+    puts "--------------------"
+    puts "Current score:\n#{player1.name}: #{player1.lives} lives \n#{player2.name}: #{player2.lives} lives"
+    togglePlayer
+    ask_player
   end
 
   # ends game and prints final score message
   def end_game
+    puts "---------- GAME OVER ----------"
     winner = (player1.lives > player2.lives ? player1.name : player2.name)
     puts "#{winner} Wins! \nFinal score:\n#{player1.name}: #{player1.lives} lives \n#{player2.name}: #{player2.lives} lives"
   end
