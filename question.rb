@@ -1,15 +1,15 @@
 class Quesiton
   def initialize
-    @leftNo = 3
-    @rightNo = 2
+    @left_no = 3
+    @right_no = 2
   end
 
   def ask(name)
-    puts "#{name}: What does #{@leftNo} plus #{@rightNo} equal?"
+    puts "#{name}: What does #{@left_no} plus #{@right_no} equal?"
   end
 
   def answer(answer)
-    puts @leftNo + @rightNo == answer
+    puts @left_no + @right_no == answer
   end
 
 end

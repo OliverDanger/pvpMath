@@ -4,10 +4,8 @@ require './question'
 
 
 game = Mathgame.new("Oliver", "Potato")
-puts game.player1.name
-puts game.player2.name
-
+puts game.next_player.name
 question1 = Quesiton.new
-question1.ask("Oliver")
+game.ask_player
 question1.answer(5)
 question1.answer(6)
