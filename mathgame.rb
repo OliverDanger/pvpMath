@@ -7,7 +7,7 @@ class Mathgame
     @current_question
   end
   
-# asks @next_player a question and verifies the answer
+  # asks @next_player a question and returns their answer
   def ask_player()
     @current_question = Quesiton.new
     @current_question.ask(@next_player.name)
@@ -16,6 +16,7 @@ class Mathgame
     check_answer(choice)
   end
 
+  # verifies the answer given against @current_question
   def check_answer(choice)
     correct = @current_question.answer(choice)
     if correct 
@@ -28,6 +29,7 @@ class Mathgame
     end 
   end
 
+  # ends game and prints final score message
   def end_game
     winner = (player1.lives > player2.lives ? player1.name : player2.name)
     puts "#{winner} Wins! \nFinal score:\n#{player1.name}: #{player1.lives} lives \n#{player2.name}: #{player2.lives} lives"
