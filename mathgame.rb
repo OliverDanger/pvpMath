@@ -4,10 +4,12 @@ class Mathgame
     @player1 = Player.new(name1)
     @player2 = Player.new(name2)
     @next_player = [@player1, @player2].sample()
-    @current_question = Quesiton.new
+    @current_question
   end
   
+# asks @next_player a question and verifies the answer
   def ask_player()
+    @current_question = Quesiton.new
     @current_question.ask(@next_player.name)
     puts "______???______???______???______"
     choice = $stdin.gets.chomp.to_i

@@ -1,7 +1,7 @@
 class Quesiton
   def initialize
-    @left_no = 3
-    @right_no = 2
+    @left_no = rand(1..20)
+    @right_no = rand(1..20)
   end
 
   def ask(name)
