@@ -1,7 +1,8 @@
 require './player'
+require './mathgame'
 
 
-oliver = Person.new("OddOctopod")
+oliver = Player.new("OddOctopod")
 puts oliver.name
 puts oliver.lives
 oliver.lose_life
