@@ -37,7 +37,7 @@ class Mathgame
 
   # toggles next_player and asks a question
   def new_turn
-    puts "--------------------"
+    puts "-------------------------------"
     puts "Current score:\n#{player1.name}: #{player1.lives} lives \n#{player2.name}: #{player2.lives} lives"
     togglePlayer
     ask_player
